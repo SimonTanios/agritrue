@@ -18,7 +18,7 @@ can actually use, plus a transparent methodology layer.
 | **True Price Calculator** | *What does 1 kg of this food really cost once externalities are priced in?* | Poore & Nemecek (2018) LCA medians + monetization coefficients |
 | **Diet True-Cost Comparator** | *How does a national diet compare to the EAT-Lancet planetary-health diet on hidden cost & footprint?* | EAT-Lancet (2019) + FAO Food Balance Sheet archetypes |
 | **Farm-Practice Comparator** | *Conventional vs organic/agroforestry/watershed — what changes across the four capitals?* | Organic/agroecology meta-analyses (Seufert, Gattinger, Tuck …) |
-| **Methodology & Sources** | *Every coefficient, citation, caveat — and a live FAOSTAT connection test.* | Fully documented, all user-adjustable |
+| **Methodology & Sources** | *Every coefficient, citation, and caveat.* | Fully documented, all user-adjustable |
 
 *(Usage analytics run silently in the background — see below — with no view in the app UI.)*
 
@@ -31,7 +31,8 @@ the sidebar sliders re-price the *entire* app live — the core TCA transparency
   branded PDF (pure-Python `fpdf2`, charts drawn natively, no headless browser needed).
 - 📊 **First-party analytics** — a built-in, privacy-aware usage log (page views, actions,
   downloads) with approximate visitor geolocation and an owner-only dashboard + visitor map.
-- 🔌 **Live FAOSTAT client** — the production data path, one click away in the Methodology view.
+- 🔌 **FAOSTAT client** — a `FAOStatClient` in `tca/data_pipeline.py` documents the production
+  data path for swapping the bundled seed for live/official figures.
 
 ---
 

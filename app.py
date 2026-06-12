@@ -355,24 +355,10 @@ assumptions rather than false precision.*
 - **Seufert et al. (2012); de Ponti et al. (2012); Gattinger et al. (2012); Tuck et al. (2014)** — organic/agroecology meta-analyses.
 
 ### Honest caveats
-1. **Per-country values are modelled**, calibrated so regional/global totals match SOFA 2024 — not the official country microdata. The `FAOStatClient` in `tca/data_pipeline.py` shows the live data path to swap them in.
+1. **Per-country values are modelled**, calibrated so regional/global totals match SOFA 2024 — not the official country microdata.
 2. **Per-commodity health costs** are intentionally optional and flagged: SOFA attributes health burden to dietary *patterns*, not single foods.
 3. **All coefficients are user-adjustable** — the sidebar sliders re-price the entire app so reviewers can stress-test every assumption.
 """)
-    st.markdown("### Live FAOSTAT pipeline (demo)")
-    st.code("""from tca.data_pipeline import FAOStatClient
-c = FAOStatClient()
-kenya_emissions = c.emissions_total(area_codes=["114"], year=2021)  # no API key needed""",
-             language="python")
-    if st.button("Test live FAOSTAT connection (Kenya GHG, 2021)"):
-        analytics.track_action(st, "faostat_test")
-        try:
-            from tca.data_pipeline import FAOStatClient
-            data = FAOStatClient().emissions_total(["114"], 2021)
-            st.success(f"Connected ✓ — received {len(data.get('data', []))} records from FAOSTAT.")
-            st.json(data.get("data", [])[:3])
-        except Exception as e:  # noqa: BLE001
-            st.warning(f"Offline or blocked ({e}). The dashboard falls back to bundled data.")
 
 
 # ==========================================================================
