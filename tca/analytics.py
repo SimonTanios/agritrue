@@ -28,6 +28,7 @@ import hashlib
 import ipaddress
 import json
 import os
+import threading
 import urllib.request
 import uuid
 
@@ -179,18 +180,33 @@ def summarise(events: list[dict]) -> dict:
 # ---------------------------------------------------------------------------
 # Streamlit session glue
 # ---------------------------------------------------------------------------
+def _resolve_geo_async(session_id: str, client: dict) -> None:
+    """Geolocate the visitor in a background thread so it never delays first paint."""
+    def worker():
+        geo = geolocate(client.get("ip", "unknown"))
+        if geo and geo.get("country"):
+            client["geo"] = geo                       # mutate the cached dict in place
+            log_event("geo", session_id, client)
+    threading.Thread(target=worker, daemon=True).start()
+
+
 def ensure_session(st) -> tuple[str, dict]:
     """
     Get (or create) this browser session's id + cached client context.
     Logs a single 'session_start' event the first time the session is seen.
+
+    Geolocation runs in the background (non-blocking) so the first page render is never
+    held up waiting on the external IP-lookup service.
     """
     ss = st.session_state
     if "agritrue_session" not in ss:
-        ss["agritrue_session"] = uuid.uuid4().hex[:12]
+        sid = uuid.uuid4().hex[:12]
+        ss["agritrue_session"] = sid
         client = get_client_info(st)
-        client["geo"] = geolocate(client["ip"])
+        client["geo"] = {}                            # filled asynchronously below
         ss["agritrue_client"] = client
-        log_event("session_start", ss["agritrue_session"], client)
+        log_event("session_start", sid, client)       # log immediately, no network wait
+        _resolve_geo_async(sid, client)
     return ss["agritrue_session"], ss["agritrue_client"]
 
 
