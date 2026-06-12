@@ -4,4 +4,5 @@ __pycache__/
 .streamlit/secrets.toml
 data/analytics_log.jsonl
 *.pdf
+*.log
 .DS_Store
