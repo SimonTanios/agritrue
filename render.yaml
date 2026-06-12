@@ -1,0 +1,15 @@
+# Optional: deploy AgriTrue on Render (https://render.com).
+# Note: Render's FREE web services spin down after ~15 min idle and cold-start in ~50s,
+# the same as Streamlit Community Cloud. Only the paid "Starter" plan ($7/mo) is always-on.
+#
+# To use:  Render dashboard -> New + -> Blueprint -> connect the SimonTanios/agritrue repo.
+services:
+  - type: web
+    name: agritrue
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
