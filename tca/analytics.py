@@ -129,7 +129,7 @@ def log_event(event_type: str, session_id: str, client: dict, **detail) -> None:
         geo = record["geo"] or {}
         loc = f"{geo.get('city', '')}/{geo.get('country', '')}".strip("/")
         detail = " ".join(f"{k}={v}" for k, v in detail.items())
-        print(f"[AGRITRUE-ANALYTICS] {record['ts']} {event:<14} "
+        print(f"[AGRITRUE-ANALYTICS] {record['ts']} {record['event']:<14} "
               f"ip={record['ip']} loc={loc or '-'} session={session_id} {detail}".rstrip(),
               flush=True)
     except Exception:  # noqa: BLE001
