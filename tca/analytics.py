@@ -32,7 +32,10 @@ import threading
 import urllib.request
 import uuid
 
-LOG_PATH = os.path.normpath(
+# Where the JSONL event log is persisted. On a host with ephemeral storage (e.g. Render),
+# set AGRITRUE_ANALYTICS_LOG to a path on a persistent disk so visit history survives
+# deploys/restarts. Defaults to data/analytics_log.jsonl beside the repo for local use.
+LOG_PATH = os.environ.get("AGRITRUE_ANALYTICS_LOG") or os.path.normpath(
     os.path.join(os.path.dirname(__file__), "..", "data", "analytics_log.jsonl"))
 
 

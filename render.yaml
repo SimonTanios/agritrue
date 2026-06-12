@@ -1,15 +1,26 @@
-# Optional: deploy AgriTrue on Render (https://render.com).
-# Note: Render's FREE web services spin down after ~15 min idle and cold-start in ~50s,
-# the same as Streamlit Community Cloud. Only the paid "Starter" plan ($7/mo) is always-on.
+# Deploy AgriTrue on Render (https://render.com).
+#
+# Plan: "starter" ($7/mo) is always-on (no idle spin-down) and supports a persistent disk.
+# A persistent disk is REQUIRED to keep the analytics log across deploys/restarts — Render's
+# container filesystem is otherwise wiped on every deploy, restart, or crash.
+# Note: attaching a disk disables zero-downtime deploys (a disk binds to one instance at a
+# time), so each deploy has a brief restart. That's fine for this single-instance app.
 #
 # To use:  Render dashboard -> New + -> Blueprint -> connect the SimonTanios/agritrue repo.
 services:
   - type: web
     name: agritrue
     env: python
-    plan: free
+    plan: starter
     buildCommand: pip install -r requirements.txt
     startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --browser.gatherUsageStats false
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.7
+      # Point the analytics log at the persistent disk so visitor history is durable.
+      - key: AGRITRUE_ANALYTICS_LOG
+        value: /var/analytics/analytics_log.jsonl
+    disk:
+      name: agritrue-analytics
+      mountPath: /var/analytics
+      sizeGB: 1
