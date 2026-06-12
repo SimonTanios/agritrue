@@ -1,0 +1,46 @@
+name,iso3,region,system,gdp_ppp_busd,hc_pct_gdp,health,env,social,hidden_total_busd,health_busd,env_busd,social_busd,system_note
+United States,USA,North America,Industrial,25035,0.085,0.8,0.17,0.03,2127.98,1702.38,361.76,63.84,"Health-dominated, low social share"
+China,CHN,East Asia,Formalizing,30327,0.11,0.66,0.28,0.06,3335.97,2201.74,934.07,200.16,Health-dominated
+India,IND,South Asia,Expanding,11875,0.14,0.48,0.3,0.22,1662.5,798.0,498.75,365.75,Rising NCDs + land conversion
+Brazil,BRA,Latin America,Diversifying,3837,0.12,0.58,0.33,0.09,460.44,267.06,151.95,41.44,Transition stage
+Indonesia,IDN,Southeast Asia,Expanding,4036,0.13,0.5,0.34,0.16,524.68,262.34,178.39,83.95,Rising NCDs + land conversion
+Nigeria,NGA,Sub-Saharan Africa,Traditional,1275,0.19,0.3,0.24,0.46,242.25,72.67,58.14,111.44,High undernourishment cost
+Germany,DEU,Europe,Industrial,5310,0.075,0.81,0.16,0.03,398.25,322.58,63.72,11.95,"Health-dominated, low social share"
+Kenya,KEN,Sub-Saharan Africa,Traditional,310,0.2,0.28,0.26,0.46,62.0,17.36,16.12,28.52,High undernourishment cost
+Ethiopia,ETH,Sub-Saharan Africa,Traditional,360,0.23,0.26,0.22,0.52,82.8,21.53,18.22,43.06,High undernourishment cost
+France,FRA,Europe,Industrial,3870,0.078,0.79,0.18,0.03,301.86,238.47,54.33,9.06,"Health-dominated, low social share"
+Japan,JPN,East Asia,Industrial,5700,0.072,0.82,0.15,0.03,410.4,336.53,61.56,12.31,"Health-dominated, low social share"
+Mexico,MEX,Latin America,Diversifying,2740,0.115,0.6,0.3,0.1,315.1,189.06,94.53,31.51,Transition stage
+Viet Nam,VNM,Southeast Asia,Expanding,1330,0.135,0.49,0.33,0.18,179.55,87.98,59.25,32.32,Rising NCDs + land conversion
+Pakistan,PAK,South Asia,Expanding,1500,0.16,0.42,0.28,0.3,240.0,100.8,67.2,72.0,Rising NCDs + land conversion
+Bangladesh,BGD,South Asia,Expanding,1300,0.155,0.44,0.27,0.29,201.5,88.66,54.41,58.43,Rising NCDs + land conversion
+United Kingdom,GBR,Europe,Industrial,3660,0.076,0.8,0.17,0.03,278.16,222.53,47.29,8.34,"Health-dominated, low social share"
+Italy,ITA,Europe,Industrial,3050,0.08,0.79,0.18,0.03,244.0,192.76,43.92,7.32,"Health-dominated, low social share"
+South Africa,ZAF,Sub-Saharan Africa,Diversifying,930,0.13,0.55,0.31,0.14,120.9,66.5,37.48,16.93,Transition stage
+Egypt,EGY,North Africa,Expanding,1700,0.14,0.52,0.3,0.18,238.0,123.76,71.4,42.84,Rising NCDs + land conversion
+Turkey,TUR,West Asia,Diversifying,3000,0.11,0.62,0.29,0.09,330.0,204.6,95.7,29.7,Transition stage
+Argentina,ARG,Latin America,Diversifying,1240,0.118,0.59,0.32,0.09,146.32,86.33,46.82,13.17,Transition stage
+Canada,CAN,North America,Industrial,2240,0.077,0.8,0.17,0.03,172.48,137.98,29.32,5.17,"Health-dominated, low social share"
+Australia,AUS,Oceania,Industrial,1700,0.079,0.79,0.18,0.03,134.3,106.1,24.17,4.03,"Health-dominated, low social share"
+Thailand,THA,Southeast Asia,Diversifying,1480,0.122,0.57,0.32,0.11,180.56,102.92,57.78,19.86,Transition stage
+Philippines,PHL,Southeast Asia,Expanding,1170,0.14,0.49,0.31,0.2,163.8,80.26,50.78,32.76,Rising NCDs + land conversion
+Tanzania,TZA,Sub-Saharan Africa,Traditional,210,0.21,0.27,0.25,0.48,44.1,11.91,11.03,21.17,High undernourishment cost
+Uganda,UGA,Sub-Saharan Africa,Traditional,130,0.215,0.27,0.24,0.49,27.95,7.55,6.71,13.7,High undernourishment cost
+Ghana,GHA,Sub-Saharan Africa,Traditional,230,0.185,0.32,0.26,0.42,42.55,13.62,11.06,17.87,High undernourishment cost
+Colombia,COL,Latin America,Diversifying,990,0.12,0.58,0.31,0.11,118.8,68.9,36.83,13.07,Transition stage
+Spain,ESP,Europe,Industrial,2230,0.08,0.78,0.19,0.03,178.4,139.15,33.9,5.35,"Health-dominated, low social share"
+Poland,POL,Europe,Formalizing,1700,0.09,0.72,0.23,0.05,153.0,110.16,35.19,7.65,Health-dominated
+Ukraine,UKR,Europe,Formalizing,420,0.13,0.55,0.34,0.11,54.6,30.03,18.56,6.01,Health-dominated
+Morocco,MAR,North Africa,Expanding,370,0.145,0.5,0.3,0.2,53.65,26.82,16.09,10.73,Rising NCDs + land conversion
+Peru,PER,Latin America,Diversifying,560,0.125,0.56,0.31,0.13,70.0,39.2,21.7,9.1,Transition stage
+Myanmar,MMR,Southeast Asia,Traditional,270,0.18,0.36,0.27,0.37,48.6,17.5,13.12,17.98,High undernourishment cost
+Mozambique,MOZ,Sub-Saharan Africa,Protracted crisis,50,0.25,0.22,0.2,0.58,12.5,2.75,2.5,7.25,Largest social burden
+Dem. Rep. Congo,COD,Sub-Saharan Africa,Protracted crisis,130,0.26,0.2,0.2,0.6,33.8,6.76,6.76,20.28,Largest social burden
+Yemen,YEM,West Asia,Protracted crisis,65,0.28,0.2,0.18,0.62,18.2,3.64,3.28,11.28,Largest social burden
+Afghanistan,AFG,South Asia,Protracted crisis,80,0.27,0.21,0.19,0.6,21.6,4.54,4.1,12.96,Largest social burden
+Saudi Arabia,SAU,West Asia,Formalizing,1900,0.09,0.7,0.25,0.05,171.0,119.7,42.75,8.55,Health-dominated
+Netherlands,NLD,Europe,Industrial,1280,0.074,0.8,0.17,0.03,94.72,75.78,16.1,2.84,"Health-dominated, low social share"
+Republic of Korea,KOR,East Asia,Industrial,2700,0.075,0.81,0.16,0.03,202.5,164.03,32.4,6.08,"Health-dominated, low social share"
+Malaysia,MYS,Southeast Asia,Formalizing,1130,0.105,0.64,0.29,0.07,118.65,75.94,34.41,8.31,Health-dominated
+Russian Fed.,RUS,Europe,Formalizing,5300,0.095,0.68,0.27,0.05,503.5,342.38,135.95,25.18,Health-dominated
+Iran,IRN,West Asia,Diversifying,1700,0.12,0.58,0.3,0.12,204.0,118.32,61.2,24.48,Transition stage

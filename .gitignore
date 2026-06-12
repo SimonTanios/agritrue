@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+data/analytics_log.jsonl
+*.pdf
+.DS_Store

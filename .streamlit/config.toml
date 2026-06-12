@@ -1,0 +1,10 @@
+# AgriTrue theme — clean UNEP-style greens/blues.
+[theme]
+primaryColor = "#2a9d8f"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f2f6f5"
+textColor = "#1f2d2b"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
