@@ -49,6 +49,22 @@ class _Brief(FPDF):
             align="C")
 
 
+_UNICODE_MAP = {
+    "—": "-", "–": "-", "−": "-", "‑": "-",  # dashes / minus
+    "≈": "~", "·": "-", "…": "...", "×": "x",
+    "‘": "'", "’": "'", "“": '"', "”": '"',
+    "₹": "INR ", "€": "EUR ", " ": " ",
+}
+
+
+def _san(text: str) -> str:
+    """Make text safe for the latin-1 core PDF font (the briefs use no embedded Unicode font)."""
+    text = str(text).replace("**", "")
+    for u, a in _UNICODE_MAP.items():
+        text = text.replace(u, a)
+    return text.encode("latin-1", "replace").decode("latin-1")
+
+
 def _section(pdf: FPDF, title: str):
     pdf.ln(2)
     pdf.set_font("Helvetica", "B", 12)
@@ -165,6 +181,39 @@ def diet_pdf(comparison: dict) -> bytes:
     _section(pdf, f"Top cost contributors - {a}")
     rows = [(f["commodity"], f["hidden_cost_usd_yr"]) for f in ra["foods"][:8]]
     _hbar_chart(pdf, rows, "USD/yr")
+    return bytes(pdf.output())
+
+
+def teeb_study_pdf(study: dict, comparison: dict) -> bytes:
+    """One-pager for a localized TEEBAgriFood scenario comparison (B vs A)."""
+    pdf = _new()
+    a, b = comparison["scenario_a"], comparison["scenario_b"]
+    _section(pdf, _san(study["name"]))
+    pdf.set_font("Helvetica", "", 9)
+    pdf.multi_cell(0, 5, _san(
+        f"{study['country']}  -  {b} vs {a}.  Basis: {study['basis']}.\n{study['summary']}"))
+    pdf.ln(1)
+    def _m(v):  # keep decimals for small (e.g. Billion-USD) magnitudes; integers for large
+        return f"${v:,.2f}" if abs(v) < 100 else f"${v:,.0f}"
+    _kpi_row(pdf, [
+        ("Net societal value change", _m(comparison['delta_net_societal'])),
+        ("Farmer's private change", _m(comparison['delta_private'])),
+        ("External (society) change", _m(comparison['delta_external'])),
+        ("Basis", _san(study["basis"].split("(")[0][:18])),
+    ])
+    _section(pdf, _san(f"Change in capital flows ({b} - {a})"))
+    from tca.teeb_studies import CAPITAL_LABELS
+    _hbar_chart(pdf, [
+        (_san(CAPITAL_LABELS[c]), comparison["delta_by_capital"][c])
+        for c in ("produced", "natural", "human", "social")
+    ], "", color=DARK)
+    pdf.ln(1)
+    pdf.set_font("Helvetica", "I", 7.5)
+    pdf.set_text_color(*GREY)
+    pdf.multi_cell(0, 3.5, _san(
+        f"Source: {study['source']}  Values are taken from the cited report (or derived from its "
+        f"published figures) and are adjustable in the app for sensitivity analysis."))
+    pdf.set_text_color(0, 0, 0)
     return bytes(pdf.output())
 
 

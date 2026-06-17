@@ -18,11 +18,12 @@ can actually use, plus a transparent methodology layer.
 | **True Price Calculator** | *What does 1 kg of this food really cost once externalities are priced in?* | Poore & Nemecek (2018) LCA medians + monetization coefficients |
 | **Diet True-Cost Comparator** | *How does a national diet compare to the EAT-Lancet planetary-health diet on hidden cost & footprint?* | EAT-Lancet (2019) + FAO Food Balance Sheet archetypes |
 | **Farm-Practice Comparator** | *Conventional vs organic/agroforestry/watershed — what changes across the four capitals?* | Organic/agroecology meta-analyses (Seufert, Gattinger, Tuck …) |
+| **Localized TCA Studies** | *Reproduce a published country study on the TEEBAgriFood four-capitals framework and run instant sensitivity analysis on any value.* | 10 localized studies, each naming its publisher — TEEBAgriFood-India state reports (UNEP), TEEB/ICRAF agroforestry & UNEP-FAO fisheries cases, plus framework applications (GIST Impact / Global Alliance India APCNF; CGIAR / IFPRI Kenya) |
 | **Methodology & Sources** | *Every coefficient, citation, and caveat.* | Fully documented, all user-adjustable |
 
 *(Usage analytics run silently in the background — see below — with no view in the app UI.)*
 
-Every figure on screen is produced by the audited `tca` engine (**22 passing unit tests**), and
+Every figure on screen is produced by the audited `tca` engine (**38 passing unit tests**), and
 the sidebar sliders re-price the *entire* app live — the core TCA transparency principle of
 *showing ranges and assumptions, not false precision.*
 
@@ -70,12 +71,14 @@ TEEBAgriFood/
 │   ├── engine.py             # TCA engine — true_price / national_breakdown / compare_practices
 │   ├── coefficients.py       # All LCA factors & monetization coefficients (fully sourced)
 │   ├── diets.py              # Diet patterns + diet true-cost comparator
+│   ├── teeb_studies.py       # 10 localized TEEBAgriFood-framework studies + four-capital ledger engine
 │   ├── report.py             # One-page PDF brief generator (fpdf2)
 │   ├── analytics.py          # First-party usage analytics + IP geolocation
 │   └── data_pipeline.py      # National dataset loader + live FAOSTAT API client
 ├── tests/
 │   ├── test_engine.py        # 12 engine unit tests
-│   └── test_features.py      # 10 diet / PDF / analytics unit tests
+│   ├── test_features.py      # 10 diet / PDF / analytics unit tests
+│   └── test_teeb_studies.py  # 16 TEEB localized-study unit tests
 ├── data/                     # Generated seed dataset (CSV) + analytics log (JSONL)
 ├── .streamlit/
 │   └── secrets.toml.example  # OWNER_KEY for the analytics view
